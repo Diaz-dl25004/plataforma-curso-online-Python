@@ -1,75 +1,126 @@
-# Lista para guardar los cursos (aquí guardaremos diccionarios con nombre y precio)
-cursos = []
+# modulos/cursos.py
+from modelos.cursos import Curso
 
-def gestion_cursos():
-    while True:
-        print("\n--- SISTEMA DE GESTION DE CURSOS EDUTEC ONLINE ---")
-        print("1. Agregar Curso")
-        print("2. Chequear los cursos activos")
-        print("3. Editar un curso")
-        print("4. Eliminar un curso")
-        print("5. Salir")
+class GestorCurso:
+    def __init__(self):
+        self.cursos = []  # Base de datos temporal para cursos
+    
+    def registrar_curso(self):
+        """Registra un nuevo curso en el sistema"""
+        print("\n=== REGISTRAR CURSO ===")
         
-        opcion = input("Seleccione una opción: ")
-
-        if opcion == "1":
-            # Apartado para agregar cursos 
-            nombre = input("Ingrese nombre del curso: ")
-            precio = input("Ingrese precio del curso: ")
-            # En Python solo hacemos .append y listo, no necesitamos contador 
-            cursos.append({"nombre": nombre, "precio": precio})
-            print("¡Curso Agregado con Éxito!")
-
-        elif opcion == "2":
-            # Apartado para checar cursos registrados 
-            if not cursos:
-                print("No hay cursos registrados.")
-            else:
-                print("\nListado de Cursos:")
-                # enumerate da el número de orden automáticamente
-                for i, curso in enumerate(cursos, 1):
-                    print(f"{i}. {curso['nombre']} - ${curso['precio']}")
-
-        elif opcion == "3":
-            # Apartado para editar cursos 
-            if not cursos:
-                print("No hay nada que editar.")
-                continue
+        id_curso = input("Ingrese ID del curso: ")
+        
+        # Validar ID único
+        for curso in self.cursos:
+            if curso.id_curso == id_curso:
+                print("Error: Ya existe un curso con ese ID")
+                return
+        
+        nombre = input("Ingrese nombre del curso: ")
+        descripcion = input("Ingrese descripción: ")
+        
+        # Validar créditos
+        try:
+            creditos = int(input("Ingrese número de créditos: "))
+            if creditos <= 0:
+                print("Error: Los créditos deben ser mayores a 0")
+                return
+        except ValueError:
+            print("Error: Ingrese un número válido para créditos")
+            return
+        
+        # Validar cupo máximo
+        try:
+            cupo_maximo = int(input("Ingrese cupo máximo del curso: "))
+            if cupo_maximo <= 0:
+                print("Error: El cupo máximo debe ser mayor a 0")
+                return
+        except ValueError:
+            print("Error: Ingrese un número válido para el cupo")
+            return
+        
+        nuevo_curso = Curso(id_curso, nombre, descripcion, creditos, cupo_maximo)
+        self.cursos.append(nuevo_curso)
+        print("¡Curso registrado con éxito!")
+    
+    def mostrar_cursos(self):
+        """Muestra todos los cursos registrados"""
+        print("\n=== LISTA DE CURSOS ===")
+        
+        if len(self.cursos) == 0:
+            print("No hay cursos registrados")
+            return
+        
+        for curso in self.cursos:
+            curso.mostrar_info()
+    
+    def buscar_curso(self):
+        """Busca un curso por su ID"""
+        print("\n=== BUSCAR CURSO ===")
+        id_buscar = input("Ingrese ID del curso: ")
+        
+        for curso in self.cursos:
+            if curso.id_curso == id_buscar:
+                print("\nCurso encontrado:")
+                curso.mostrar_info()
+                return
+        print("Curso no encontrado.")
+    
+    def actualizar_curso(self):
+        """Actualiza los datos de un curso existente"""
+        print("\n=== ACTUALIZAR CURSO ===")
+        id_buscar = input("Ingrese ID del curso a actualizar: ")
+        
+        for curso in self.cursos:
+            if curso.id_curso == id_buscar:
+                print("\nDeje en blanco si no desea modificar el campo")
                 
-            try:
-                indice = int(input("Ingrese el número de curso a editar: ")) - 1
-                if 0 <= indice < len(cursos):
-                    cursos[indice]['nombre'] = input("Nuevo Nombre: ")
-                    cursos[indice]['precio'] = input("Nuevo Precio: ")
-                    print("¡Curso editado con éxito!")
-                else:
-                    print("Curso no encontrado.")
-            except ValueError:
-                print("Error: Por favor ingrese un número válido.")
-
-        elif opcion == "4":
-            # Apartado para eliminar cursos 
-            if not cursos:
-                print("No hay cursos para eliminar.")
-                continue
-
-            try:
-                indice = int(input("Número de curso a eliminar: ")) - 1
-                if 0 <= indice < len(cursos):
-                    # .pop() elimina y reordena todo automáticamente
-                    eliminado = cursos.pop(indice)
-                    print(f"¡Curso '{eliminado['nombre']}' eliminado con éxito!")
-                else:
-                    print("Error: El curso no existe.")
-            except ValueError:
-                print("Error: Ingrese un número de índice válido.")
-
-        elif opcion == "5":
-            print("Saliendo del módulo de cursos...")
-            break
-        else:
-            print("Opción incorrecta, intente de nuevo.")
-
-# Para probarlo
-if __name__ == "__main__":
-    gestion_cursos()
+                nombre = input(f"Nuevo nombre ({curso.nombre}): ")
+                descripcion = input(f"Nueva descripción ({curso.descripcion}): ")
+                
+                creditos_input = input(f"Nuevos créditos ({curso.creditos}): ")
+                creditos = int(creditos_input) if creditos_input else None
+                
+                cupo_input = input(f"Nuevo cupo máximo ({curso.cupo_maximo}): ")
+                cupo_maximo = int(cupo_input) if cupo_input else None
+                
+                curso.actualizar_datos(
+                    nombre=nombre if nombre else None,
+                    descripcion=descripcion if descripcion else None,
+                    creditos=creditos,
+                    cupo_maximo=cupo_maximo
+                )
+                return
+        print("Curso no encontrado.")
+    
+    def eliminar_curso(self):
+        """Elimina un curso del sistema"""
+        print("\n=== ELIMINAR CURSO ===")
+        id_buscar = input("Ingrese ID del curso a eliminar: ")
+        
+        for curso in self.cursos:
+            if curso.id_curso == id_buscar:
+                # Verificar si hay estudiantes inscritos
+                if curso.inscritos > 0:
+                    print(f"No se puede eliminar el curso. Tiene {curso.inscritos} estudiante(s) inscrito(s).")
+                    return
+                
+                self.cursos.remove(curso)
+                print("Curso eliminado correctamente.")
+                return
+        print("Curso no encontrado.")
+    
+    def ver_cupos_disponibles(self):
+        """Muestra los cupos disponibles de todos los cursos"""
+        print("\n=== CUPOS DISPONIBLES POR CURSO ===")
+        
+        if len(self.cursos) == 0:
+            print("No hay cursos registrados")
+            return
+        
+        for curso in self.cursos:
+            disponibles = curso.cupo_maximo - curso.inscritos
+            print(f"Curso: {curso.nombre} (ID: {curso.id_curso})")
+            print(f"  Cupos disponibles: {disponibles}/{curso.cupo_maximo}")
+            print("-" * 30)
