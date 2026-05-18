@@ -88,13 +88,3 @@ class GestorEstudiante:
                 return
 
         print("Estudiante no encontrado.")
-
-
-
-
-
-
-
-
-
-

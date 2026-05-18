@@ -1,10 +1,8 @@
 #Creacion del menu Gestion de Estudiantes
 from modulos.estudiantes import GestorEstudiante
 
-def submenu_estudiante(): # Defino la función y servirá para poder llamarla desde el menú principal
-     gestor = GestorEstudiante()
-
-     while True:
+def submenu_estudiante(gestor_estudiante): # Defino la función y servirá para poder llamarla desde el menú principal  
+    while True:
         print("\n=== MENÚ ESTUDIANTES ===")
         print("1. Registrar estudiante")
         print("2. Mostrar estudiantes")
@@ -18,19 +16,19 @@ def submenu_estudiante(): # Defino la función y servirá para poder llamarla de
         match opcion:
 
             case "1":
-                gestor.registrar_estudiante()
+                gestor_estudiante.registrar_estudiante()
 
             case "2":
-                gestor.mostrar_estudiante()
+                gestor_estudiante.mostrar_estudiante()
 
             case "3":
-                gestor.buscar_estudiante()
+                gestor_estudiante.buscar_estudiante()
 
             case "4":
-                gestor.actualizar_estudiante()
+                gestor_estudiante.actualizar_estudiante()
 
             case "5":
-                gestor.eliminar_estudiante()
+                gestor_estudiante.eliminar_estudiante()
 
             case "6":
                 print("Regresando al menú principal")
