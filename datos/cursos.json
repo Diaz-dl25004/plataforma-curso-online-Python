@@ -1,0 +1,38 @@
+[
+    {
+        "id_curso": "P135",
+        "nombre": "Python",
+        "descripcion": "Introducción a Python",
+        "creditos": 3,
+        "cupo_maximo": 25,
+        "inscritos": 0,
+        "tutor": "Ing. Walter Ernesto Andrade Mejía ( Desarrollo de Software)"
+    },
+    {
+        "id_curso": "J230",
+        "nombre": "Java",
+        "descripcion": "Introducción a Java",
+        "creditos": 3,
+        "cupo_maximo": 25,
+        "inscritos": 2,
+        "tutor": "Ing. Óscar Antonio Lourdes (Desarrollo de Software)"
+    },
+    {
+        "id_curso": "E250",
+        "nombre": "Instalaciones Residenciales",
+        "descripcion": "Diseño de intalaciones",
+        "creditos": 3,
+        "cupo_maximo": 42,
+        "inscritos": 1,
+        "tutor": "Ing. Saúl Ernesto Molina (Ing. Eléctrico)"
+    },
+    {
+        "id_curso": "CI790",
+        "nombre": "Ciber-seguridad",
+        "descripcion": "Principios de seguridad en redes y protección de datos",
+        "creditos": 4,
+        "cupo_maximo": 16,
+        "inscritos": 1,
+        "tutor": "Ing. Jaqueline Vannesa Estrada Duarte (Ciber-seguridad)"
+    }
+]

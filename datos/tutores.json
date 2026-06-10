@@ -1,0 +1,72 @@
+[
+    {
+        "id_tutor": 1,
+        "nombre": "Ing. Walter Ernesto Andrade Mejía",
+        "profesion": " Desarrollo de Software"
+    },
+    {
+        "id_tutor": 2,
+        "nombre": "Ing. Óscar Antonio Lourdes",
+        "profesion": "Desarrollo de Software"
+    },
+    {
+        "id_tutor": 3,
+        "nombre": "Ing. Jaqueline Vannesa Estrada Duarte",
+        "profesion": "Ciber-seguridad"
+    },
+    {
+        "id_tutor": 4,
+        "nombre": "Ing. Karla Alejandra Martínez",
+        "profesion": "Arquitectura"
+    },
+    {
+        "id_tutor": 5,
+        "nombre": "Ing. Julieta Venegas de la Cruz",
+        "profesion": "Ciber-seguridad"
+    },
+    {
+        "id_tutor": 6,
+        "nombre": "Ing. Saúl Ernesto Molina",
+        "profesion": "Ing. Eléctrico"
+    },
+    {
+        "id_tutor": 7,
+        "nombre": "Ing. Carlos Mendoza",
+        "profesion": "Administrador de Bases de Datos (DBA)"
+    },
+    {
+        "id_tutor": 8,
+        "nombre": "Licda. Elena Rosales",
+        "profesion": "Científica de Datos e IA"
+    },
+    {
+        "id_tutor": 9,
+        "nombre": "Msc. Roberto Cáceres",
+        "profesion": "Arquitecto de Soluciones Cloud (AWS/Azure)"
+    },
+    {
+        "id_tutor": 10,
+        "nombre": "Gabriela Fuentes Alvarado",
+        "profesion": "Diseñadora de Experiencia de Usuario (UI/UX)"
+    },
+    {
+        "id_tutor": 11,
+        "nombre": "Ing. Néstor Alfaro",
+        "profesion": "Especialista en Automatización y QA Testing"
+    },
+    {
+        "id_tutor": 12,
+        "nombre": "Lic. Fernando Portillo",
+        "profesion": "Project Manager & Scrum Master"
+    },
+    {
+        "id_tutor": 13,
+        "nombre": "Dra. Silvia Juárez",
+        "profesion": "Especialista en Marketing Digital y Analítica"
+    }
+
+]
+
+
+
+

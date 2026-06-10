@@ -19,9 +19,26 @@ class Estudiante: # Se definen los atributos de la clase
           self.correo = correo
           self.edad = edad
      
-          
+     #-----METODOS PARA LA INTEGRACION DEL USO DE JSON----
+     
+     def to_dict(self): #Esta funcion convierte un objeto Estudiante en un dicionario que Json puede guardar
+          return{
+               "id_estudiante": self.id_estudiante,
+               "nombre": self.nombre,
+               "correo": self.correo,
+               "edad": self.edad
+          }   
+     
+     @classmethod 
+     def from_dict(cls, datos):  # Esta funcion toma el diccionario guardado en json y lo transforma en un objeto
+          return cls(
+              datos["id_estudiante"],
+              datos["nombre"],
+              datos["correo"],
+              datos["edad"]
+    )  
    
-
+     
 
 
 

@@ -1,0 +1,44 @@
+[
+    {
+        "id_estudiante": "DL25004",
+        "nombre": "Adalberto Díaz",
+        "correo": "diaz@gmail.com",
+        "edad": 30
+    },
+    {
+        "id_estudiante": "KV25410",
+        "nombre": "Karla Viscarra",
+        "correo": "@karla",
+        "edad": 25
+    },
+    {
+        "id_estudiante": "KR2025",
+        "nombre": "Katherine Ramirez",
+        "correo": "@Rmami",
+        "edad": 25
+    },
+    {
+        "id_estudiante": "SD3021",
+        "nombre": "Sara Diaz",
+        "correo": "@sara",
+        "edad": 19
+    },
+    {
+        "id_estudiante": "PS8401",
+        "nombre": "Pablo Sarmientos",
+        "correo": "@pablo",
+        "edad": 31
+    },
+    {
+        "id_estudiante": "QE5415",
+        "nombre": "Joel Galina Rivas",
+        "correo": "joel@gmail.com",
+        "edad": 35
+    },
+    {
+        "id_estudiante": "JF3001",
+        "nombre": "Jorge Francisco Guzman ",
+        "correo": "jorge@gmail.com",
+        "edad": 31
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "id_inscripcion": 2,
+        "id_estudiante": "PS8401",
+        "id_curso": "J230",
+        "tutor": "Ing. Óscar Antonio Lourdes (Desarrollo de Software)"
+    },
+    {
+        "id_inscripcion": 3,
+        "id_estudiante": "QE5415",
+        "id_curso": "J230",
+        "tutor": "Ing. Óscar Antonio Lourdes (Desarrollo de Software)"
+    },
+    {
+        "id_inscripcion": 4,
+        "id_estudiante": "DL25004",
+        "id_curso": "CI790",
+        "tutor": "Ing. Jaqueline Vannesa Estrada Duarte (Ciber-seguridad)"
+    },
+    {
+        "id_inscripcion": 5,
+        "id_estudiante": "JF3001",
+        "id_curso": "E250",
+        "tutor": "Ing. Saúl Ernesto Molina (Ing. Eléctrico)"
+    }
+]
