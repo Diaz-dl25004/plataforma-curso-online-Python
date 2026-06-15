@@ -70,7 +70,6 @@ class TestGestorInscripcion(unittest.TestCase):
         self.gestor_inscripcion = GestorInscripcion(self.gestor_estudiante,
                                                    self.gestor_curso)
 
-        # 🔥 CORRECCIÓN IMPORTANTE:
         # Vaciar la lista de inscripciones que se cargaron del JSON real
         self.gestor_inscripcion.inscripciones = []
         self.gestor_inscripcion.contador_id = 1
@@ -103,6 +102,24 @@ class TestGestorInscripcion(unittest.TestCase):
         curso = self.gestor_curso.cursos[0]
         self.assertEqual(curso.inscritos, 1)
 
+    def test_inscribir_estudiante_duplicado(self):
+        """Prueba que un estudiante no puede inscribirse dos veces en el mismo curso."""
+        # Primera inscripción (exitosa)
+        with patch('builtins.input', side_effect=['E001', '1']):
+            self.gestor_inscripcion.inscribir_estudiante()
+
+        # Verificar que se inscribió correctamente
+        self.assertEqual(len(self.gestor_inscripcion.inscripciones), 1)
+        self.assertEqual(self.gestor_curso.cursos[0].inscritos, 1)
+
+        # Segunda inscripción (duplicada - debe fallar)
+        with patch('builtins.input', side_effect=['E001', '1']):
+            self.gestor_inscripcion.inscribir_estudiante()
+
+        # Verificar que no se agregó otra inscripción
+        self.assertEqual(len(self.gestor_inscripcion.inscripciones), 1)
+        # El curso no debe aumentar sus inscritos
+        self.assertEqual(self.gestor_curso.cursos[0].inscritos, 1)
 
 if __name__ == "__main__":
     unittest.main()
